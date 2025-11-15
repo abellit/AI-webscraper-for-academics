@@ -1,10 +1,12 @@
 import selenium.webdriver as webdriver
+import streamlit as st
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import time
 
 # Function to scrape a website and return its HTML content
+
 def scrape_website(website):
     print("Launchine chrome browser...")
 
@@ -26,6 +28,7 @@ def scrape_website(website):
     finally:
         driver.quit()
 
+
 # Function to extract the main content from the HTML
 def extract_main_content(html):
     soup = BeautifulSoup(html, 'html.parser')
@@ -35,6 +38,7 @@ def extract_main_content(html):
     else:
         return "No main content found."
 
+
 # Function to clean the extracted main content
 def clean_main_content(content):
     soup = BeautifulSoup(content, 'html.parser')
@@ -43,6 +47,7 @@ def clean_main_content(content):
     cleaned_content = soup.get_text(separator="\n")
     cleaned_content = "\n".join(line.strip() for line in cleaned_content.splitlines() if line.strip())
     return cleaned_content
+
 
 # Function to split the DOM content into smaller chunks for easier processing
 def split_dom_content(dom_content, max_length=5000):

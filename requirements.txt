@@ -3,6 +3,16 @@ langchain
 langchain_ollama
 selenium
 lxml
+playwright
+pymupdf
+pdfminer.six
+sentence-transformers
+faiss-cpu
+chromadb
+aiohttp
+pydantic
+pytest
+uvicorn
 html5lib
 python-dotenv
 beautifulsoup4
